@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="chat-container" style="overflow: auto; max-height: 80vh">
+        <div class="table-responsive">
+            <table class="table" id="failures">
+                <thead>
+                    <tr>
+                        <th scope="col">Failure</th>
+                        <th scope="col">Count</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for failure in failures %}
+                    <tr id={{ failure.id }}>
+                        <td scope="row">{{ failure.failure }}</td>
+                        <td> {{failure.count }} </td>
+                        <td> {{ failure.status }} </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
